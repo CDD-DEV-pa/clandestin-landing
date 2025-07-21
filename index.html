@@ -18,9 +18,19 @@
   const vid = document.getElementById('clandestinIntro');
   const intro = document.getElementById('video-intro');
   const skip = document.getElementById('skipIntro');
-  vid.onended = () => intro.style.display = 'none';
+  
+  // Asigură-te că video începe
+  vid.muted = true;
+  vid.play().catch(()=>{});
+
+  // Când video se termină, dispare overlayul
+  vid.onended = () => { intro.style.display = 'none'; };
+
+  // Pe click pe SKIP, ascunde intro și oprește video
   skip.onclick = () => { vid.pause(); intro.style.display = 'none'; };
-  setTimeout(()=>{ intro.style.display = 'none'; }, 15500);
+
+  // Siguranță: ascunde overlay după 16s chiar dacă nu emite 'ended'
+  setTimeout(()=>{ intro.style.display = 'none'; }, 16000);
 </script>
   <!-- HERO -->
   <header class="relative overflow-hidden">
