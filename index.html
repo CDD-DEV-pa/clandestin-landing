@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Clandestin – the most accessible decentralised ecosystem powered by the QRM signal token." />
+  <title>Clandestin • Official Landing</title>
+  <link rel="icon" href="/assets/qrm-logo.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-[#161622] text-white antialiased selection:bg-indigo-600/70 selection:text-white">
+  <!-- HERO -->
+  <header class="relative overflow-hidden">
+    <nav class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
+      <div class="flex items-center space-x-2">
+        <img src="/assets/clandestin-logo.jpg" alt="Clandestin Logo" class="w-8 h-8 rounded-full" />
+        <span class="font-bold text-xl">Clandestin</span>
+      </div>
+      <ul class="hidden md:flex space-x-6 text-sm font-medium">
+        <li><a href="#docs" class="hover:text-indigo-400">Docs</a></li>
+        <li><a href="#nft" class="hover:text-indigo-400">NFTs</a></li>
+        <li><a href="https://qrm-deploy-clean.vercel.app" target="_blank" class="hover:text-indigo-400">dApp</a></li>
+      </ul>
+      <div class="md:hidden">
+        <!-- simple menu icon -->
+        <button id="openMenu" class="focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <section class="flex flex-col items-center text-center px-6 pt-20 pb-32 bg-gradient-to-b from-[#1d1d2d] to-[#161622] relative">
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight max-w-3xl">Signal came first.<br><span class="text-indigo-500">Token or cult?</span> You decide.</h1>
+      <p class="mt-6 max-w-xl text-gray-300">Clandestin is the hardware‑light, energy‑light ecosystem where anyone can mine by decoding Morse. Powered by <span class="font-semibold">QRM</span>.</p>
+      <div class="flex space-x-4 mt-10">
+        <a href="https://qrm-deploy-clean.vercel.app" class="py-3 px-8 bg-indigo-600 hover:bg-indigo-700 rounded-2xl shadow-lg font-semibold">Validate Today’s Signal ↗</a>
+        <a href="#docs" class="py-3 px-8 border border-white/20 hover:border-indigo-400 rounded-2xl font-semibold">Read Docs</a>
+      </div>
+      <!-- subtle animated pulse background -->
+      <div class="absolute -z-10 inset-0 bg-[radial-gradient(circle_at_center,rgba(113,31,210,0.25),transparent_60%)]"></div>
+    </section>
+  </header>
+
+  <!-- DOCS SECTION -->
+  <section id="docs" class="py-20 px-6 max-w-6xl mx-auto">
+    <h2 class="text-2xl md:text-3xl font-bold mb-8">Documentation</h2>
+    <div class="grid md:grid-cols-2 gap-6 text-sm">
+      <div class="bg-[#1e1e2e] rounded-2xl p-6 border border-white/10 hover:border-indigo-500 transition">
+        <h3 class="font-semibold text-lg mb-2">Legal & Governance</h3>
+        <ul class="space-y-1 list-disc list-inside text-gray-300">
+          <li><a href="/docs/legal/02_terms_of_use_en.pdf" target="_blank" class="hover:text-indigo-400">Terms of Use</a></li>
+          <li><a href="/docs/legal/03_privacy_policy_en.pdf" target="_blank" class="hover:text-indigo-400">Privacy Policy</a></li>
+          <li><a href="/docs/legal/04_risk_disclosure_en.pdf" target="_blank" class="hover:text-indigo-400">Risk Disclosure</a></li>
+          <li><a href="/docs/legal/05_gov_law_clause_en.pdf" target="_blank" class="hover:text-indigo-400">Governing Law</a></li>
+          <li><a href="/docs/legal/01_fairness_act_clandestin_en.pdf" target="_blank" class="hover:text-indigo-400">Fairness Act</a></li>
+        </ul>
+      </div>
+      <div class="bg-[#1e1e2e] rounded-2xl p-6 border border-white/10 hover:border-indigo-500 transition">
+        <h3 class="font-semibold text-lg mb-2">Security & Brand</h3>
+        <ul class="space-y-1 list-disc list-inside text-gray-300">
+          <li><a href="/docs/security/01_security_policy_en.pdf" target="_blank" class="hover:text-indigo-400">Security Policy</a></li>
+          <li><a href="/docs/security/02_bug_bounty_rules_en.pdf" target="_blank" class="hover:text-indigo-400">Bug‑Bounty Rules</a></li>
+          <li><a href="/docs/security/03_rapid_action_playbook_en.pdf" target="_blank" class="hover:text-indigo-400">Rapid‑Action Playbook</a></li>
+          <li><a href="/docs/ip/01_trademark_guidelines_en.pdf" target="_blank" class="hover:text-indigo-400">Trademark Guidelines</a></li>
+          <li><a href="/docs/ip/03_dmca_policy_en.pdf" target="_blank" class="hover:text-indigo-400">DMCA Policy</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- NFT SECTION -->
+  <section id="nft" class="py-20 px-6 bg-[#1d1d2d]">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">NFT Tiers</h2>
+      <p class="text-gray-300 max-w-2xl mx-auto">Progressive annual NFTs for those who validate all signals, plus rare “Constructor Ex Ignis” NFTs obtainable by burning ≥ 10 000 000 QRM.</p>
+      <div class="grid md:grid-cols-4 gap-6 mt-10">
+        <div class="bg-[#161622] rounded-2xl p-6 border border-indigo-500">
+          <h3 class="font-semibold mb-1">Witness</h3><span class="text-sm text-gray-400">Year 1</span>
+        </div>
+        <div class="bg-[#161622] rounded-2xl p-6 border border-indigo-500/80">
+          <h3 class="font-semibold mb-1">Initiate</h3><span class="text-sm text-gray-400">Year 2</span>
+        </div>
+        <div class="bg-[#161622] rounded-2xl p-6 border border-indigo-500/60">
+          <h3 class="font-semibold mb-1">Constructor</h3><span class="text-sm text-gray-400">Year 3</span>
+        </div>
+        <div class="bg-[#161622] rounded-2xl p-6 border border-indigo-500/40">
+          <h3 class="font-semibold mb-1">Divergent</h3><span class="text-sm text-gray-400">Year 4</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 bg-[#161622] text-center text-sm text-gray-400">
+    <div class="flex justify-center space-x-6 mb-4">
+      <a href="https://x.com/clandestin_signal" class="hover:text-indigo-400" aria-label="X/Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 5.924c-.793.352-1.644.592-2.538.699.913-.547 1.613-1.413 1.944-2.447-.854.504-1.798.87-2.81 1.067-.806-.859-1.956-1.396-3.228-1.396-2.44 0-4.436 1.986-4.436 4.438 0 .347.04.684.115 1.008-3.686-.185-6.957-1.953-9.147-4.636-.382.656-.602 1.418-.602 2.228 0 1.538.784 2.896 1.976 3.69-.73-.022-1.417-.224-2.017-.556v.056c0 2.151 1.532 3.946 3.571 4.352-.373.101-.766.154-1.17.154-.286 0-.565-.028-.836-.081.566 1.774 2.209 3.064 4.158 3.099-1.522 1.193-3.437 1.902-5.515 1.902-.359 0-.713-.021-1.062-.061 1.969 1.264 4.307 2.001 6.824 2.001 8.189 0 12.669-6.787 12.669-12.668 0-.193-.004-.385-.013-.577.871-.628 1.632-1.417 2.235-2.31z"/></svg></a>
+      <a href="https://reddit.com/r/clandestin" class="hover:text-indigo-400" aria-label="Reddit"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M21.952 11.71c-.097-.225-.337-.35-.575-.297-.225.047-.375.267-.345.494.012.1.019.2.019.3 0 3.593-3.83 6.51-8.51 6.51s-8.51-2.917-8.51-6.51c0-.1.007-.2.018-.3.03-.227-.12-.447-.345-.494-.238-.053-.478.072-.575.297-.041.095-.063.2-.063.306 0 4.126 3.98 7.5 8.975 7.5s8.975-3.374 8.975-7.5c0-.106-.022-.211-.064-.306zM8.062 13.017c-.961 0-1.741.799-1.741 1.784s.78 1.784 1.741 1.784c.962 0 1.742-.799 1.742-1.784s-.78-1.784-1.742-1.784zm7.876 0c-.962 0-1.742.799-1.742 1.784s.78 1.784 1.742 1.784c.961 0 1.741-.799 1.741-1.784s-.78-1.784-1.741-1.784z"/><circle cx="12" cy="5.667" r="2"/></svg></a>
+      <a href="https://tiktok.com/@clandestin" class="hover:text-indigo-400" aria-label="TikTok"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17 7.2c1 .6 2.2.9 3.4.9V4.3c-.4 0-.8-.1-1.2-.1-2.3-.3-4.3-1.7-5.2-4h-3v14.8c0 1.2-.2 2.2-.7 2.9-.4.7-1.1 1.3-2 1.6-.7.3-1.5.4-2.4.4-1.3 0-2.4-.3-3.3-1-.9-.7-1.4-1.7-1.4-3 0-1.3.5-2.3 1.4-3 .8-.6 1.9-1 3.3-1 .3 0 .6.1.9.1v-3c-.3 0-.6-.1-.9-.1-1.1 0-2 .2-2.9.7-.9.5-1.6 1.1-2.2 1.9-.6.8-1 1.6-1.3 2.6-.3 1-.5 1.9-.5 2.9 0 1 .2 1.9.5 2.8.3.9.8 1.7 1.4 2.4.6.7 1.4 1.2 2.3 1.6s1.9.6 3.1.6c1.8 0 3.2-.3 4.4-.9 1.2-.6 2.2-1.4 2.9-2.5.8-1.1 1.2-2.3 1.2-3.8V7.2z"/></svg></a>
+    </div>
+    <p>© 2025 Clandestin • Powered by QRM</p>
+  </footer>
+</body>
+</html>
+
