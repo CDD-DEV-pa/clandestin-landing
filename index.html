@@ -20,29 +20,13 @@
   </button>
 </section>
 <script>
-  const vid = document.getElementById('clandestinIntro');
-  const intro = document.getElementById('video-intro');
-  const skip = document.getElementById('skipIntro');
-  const play = document.getElementById('playIntro');
-
-  // Pe click pe PLAY: resetează video și pornește sincron, ascunde butonul Play
-  play.onclick = () => {
-    vid.pause();
-    vid.currentTime = 0;
-    vid.muted = false;
-    vid.volume = 1.0;
-    vid.play();
-    play.style.display = 'none';
-  };
-
-  // La finalul video: ascunde overlay-ul
-  vid.onended = () => { intro.style.display = 'none'; };
-
-  // La SKIP: oprește video și ascunde overlay-ul (resetează poziția)
-  skip.onclick = () => { vid.pause(); vid.currentTime = 0; intro.style.display = 'none'; };
-
-  // Siguranță: auto-hide overlay după 16s, oprește și resetează video
-  setTimeout(() => { intro.style.display = 'none'; vid.pause(); vid.currentTime = 0; }, 16000);
+  const video = document.getElementById('clandestinIntro');
+  video.addEventListener('ended', function() {
+    const next = document.getElementById('main-content');
+    if(next) {
+      next.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
 </script>
   <!-- HERO -->
   <header class="relative overflow-hidden">
