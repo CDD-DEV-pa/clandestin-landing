@@ -132,7 +132,8 @@
       <!-- NFT Martor -->
       <div class="bg-[#161622] rounded-2xl p-6 border border-indigo-500 flex flex-col items-center">
         <video src="/assets/nft-martor.mp4" autoplay loop muted playsinline
-               class="w-24 h-24 mx-auto mb-3 rounded-xl shadow-lg"
+               onclick="openVideoModal('/assets/nft-martor.mp4')"
+               class="w-24 h-24 mx-auto mb-3 rounded-xl shadow-lg cursor-pointer transition duration-200 hover:ring-2 hover:ring-indigo-400"
                style="object-fit:cover;">
         </video>
         <h3 class="font-semibold mb-1">Martor</h3>
@@ -141,7 +142,8 @@
       <!-- NFT Initiat -->
       <div class="bg-[#161622] rounded-2xl p-6 border border-indigo-500/80 flex flex-col items-center">
         <video src="/assets/nft-initiat.mp4" autoplay loop muted playsinline
-               class="w-24 h-24 mx-auto mb-3 rounded-xl shadow-lg"
+               onclick="openVideoModal('/assets/nft-initiat.mp4')"
+               class="w-24 h-24 mx-auto mb-3 rounded-xl shadow-lg cursor-pointer transition duration-200 hover:ring-2 hover:ring-indigo-400"
                style="object-fit:cover;">
         </video>
         <h3 class="font-semibold mb-1">Inițiat</h3>
@@ -150,7 +152,8 @@
       <!-- NFT Constructor -->
       <div class="bg-[#161622] rounded-2xl p-6 border border-indigo-500/60 flex flex-col items-center">
         <video src="/assets/nft-constructor.mp4" autoplay loop muted playsinline
-               class="w-24 h-24 mx-auto mb-3 rounded-xl shadow-lg"
+               onclick="openVideoModal('/assets/nft-constructor.mp4')"
+               class="w-24 h-24 mx-auto mb-3 rounded-xl shadow-lg cursor-pointer transition duration-200 hover:ring-2 hover:ring-indigo-400"
                style="object-fit:cover;">
         </video>
         <h3 class="font-semibold mb-1">Constructor</h3>
@@ -159,7 +162,8 @@
       <!-- NFT Explorator -->
       <div class="bg-[#161622] rounded-2xl p-6 border border-indigo-500/40 flex flex-col items-center">
         <video src="/assets/nft-explorator.mp4" autoplay loop muted playsinline
-               class="w-24 h-24 mx-auto mb-3 rounded-xl shadow-lg"
+               onclick="openVideoModal('/assets/nft-explorator.mp4')"
+               class="w-24 h-24 mx-auto mb-3 rounded-xl shadow-lg cursor-pointer transition duration-200 hover:ring-2 hover:ring-indigo-400"
                style="object-fit:cover;">
         </video>
         <h3 class="font-semibold mb-1">Explorator</h3>
@@ -170,7 +174,8 @@
     <div class="max-w-md mx-auto mt-12">
       <div class="bg-[#161622] rounded-2xl p-6 border-2 border-yellow-500 flex flex-col items-center shadow-xl">
         <video src="/assets/nft-divergent.mp4" autoplay loop muted playsinline
-               class="w-32 h-32 mx-auto mb-3 rounded-2xl shadow-lg"
+               onclick="openVideoModal('/assets/nft-divergent.mp4')"
+               class="w-32 h-32 mx-auto mb-3 rounded-2xl shadow-lg cursor-pointer transition duration-200 hover:ring-2 hover:ring-yellow-400"
                style="object-fit:cover;">
         </video>
         <h3 class="font-bold text-lg mb-1 text-yellow-300">Divergent</h3>
@@ -200,6 +205,33 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+</script>
+<!-- Modal pentru video NFT -->
+<div id="videoModal" style="display:none; position:fixed; z-index:2000; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); align-items:center; justify-content:center;">
+  <video id="modalVideo" style="max-width:90vw; max-height:80vh; border-radius:16px; box-shadow:0 8px 32px #000;" controls></video>
+  <button onclick="closeVideoModal()" style="position:absolute;top:32px;right:48px;font-size:2em;color:white;background:none;border:none;cursor:pointer;">&times;</button>
+</div>
+<script>
+  function openVideoModal(src) {
+    const modal = document.getElementById('videoModal');
+    const v = document.getElementById('modalVideo');
+    v.src = src;
+    v.currentTime = 0;
+    v.muted = false;
+    v.loop = false;
+    v.play();
+    modal.style.display = 'flex';
+  }
+  function closeVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const v = document.getElementById('modalVideo');
+    v.pause();
+    modal.style.display = 'none';
+  }
+  // Închide la click pe fundal
+  document.getElementById('videoModal').onclick = function(e){
+    if(e.target === this) closeVideoModal();
+  }
 </script>
 </body>
 </html>
