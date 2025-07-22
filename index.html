@@ -10,16 +10,15 @@
 </head>
 <body class="min-h-screen bg-[#161622] text-white antialiased selection:bg-indigo-600/70 selection:text-white">
 <!-- VIDEO INTRO -->
-<section id="video-intro" style="width:100%;max-width:900px;margin:24px auto 0 auto;padding:0;">
-  <video id="clandestinIntro" src="/assets/intro.mp4" playsinline autoplay muted loop
+<section id="video-intro" style="width:100%;max-width:900px;margin:24px auto 0 auto;padding:0;text-align:center;">
+  <video id="clandestinIntro" src="/assets/intro.mp4" playsinline
     style="width:100%;height:auto;display:block;border-radius:18px;background:black;object-fit:cover;">
   </video>
+  <button onclick="document.getElementById('clandestinIntro').play()"
+    style="margin-top:16px;padding:0.5em 2em;font-size:1.2em;background:#27EA81;color:#161622;border:none;border-radius:8px;cursor:pointer;">
+    ▶ Play Intro
+  </button>
 </section>
-  <button id="playIntro" style="position:absolute;top:2rem;left:2rem;padding:0.5em 1.5em;font-size:1.2em;background:#27EA81;color:#161622;border:none;border-radius:2em;cursor:pointer;opacity:0.85;z-index:1010;">
-  Play
-</button>
-<button id="skipIntro" style="position:absolute;top:2rem;right:2rem;padding:0.5em 1.5em;font-size:1.2em;background:#711FD2;color:#fff;border:none;border-radius:2em;cursor:pointer;opacity:0.75;">SKIP</button>
-</div>
 <script>
   const vid = document.getElementById('clandestinIntro');
   const intro = document.getElementById('video-intro');
