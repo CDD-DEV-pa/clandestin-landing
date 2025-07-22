@@ -19,15 +19,6 @@
     ▶ Play Intro
   </button>
 </section>
-<script>
-  const video = document.getElementById('clandestinIntro');
-  video.addEventListener('ended', function() {
-    const next = document.getElementById('main-content');
-    if(next) {
-      next.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-</script>
   <!-- HERO -->
   <header class="relative overflow-hidden">
     <nav class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
@@ -119,6 +110,18 @@
     </div>
     <p>© 2025 Clandestin • Powered by QRM</p>
   </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const video = document.getElementById('clandestinIntro');
+  if (!video) return;
+  video.addEventListener('ended', function() {
+    const next = document.getElementById('main-content');
+    if(next) {
+      next.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+</script>
 </body>
 </html>
 
