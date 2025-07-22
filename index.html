@@ -11,25 +11,31 @@
 <body class="min-h-screen bg-[#161622] text-white antialiased selection:bg-indigo-600/70 selection:text-white">
 <!-- VIDEO INTRO -->
 <div id="video-intro" style="position:fixed;inset:0;z-index:1000;background:black;display:flex;align-items:center;justify-content:center;">
-  <video id="clandestinIntro" src="/assets/intro.mp4" autoplay muted playsinline style="width:100vw;height:100vh;object-fit:cover;"></video>
-  <button id="skipIntro" style="position:absolute;top:2rem;right:2rem;padding:0.5em 1.5em;font-size:1.2em;background:#711FD2;color:#fff;border:none;border-radius:2em;cursor:pointer;opacity:0.75;">SKIP</button>
+  <video id="clandestinIntro" src="/assets/intro.mp4" playsinline style="width:100vw;height:100vh;object-fit:cover;"></video>
+  <button id="playIntro" style="position:absolute;top:2rem;left:2rem;padding:0.5em 1.5em;font-size:1.2em;background:#27EA81;color:#161622;border:none;border-radius:2em;cursor:pointer;opacity:0.85;z-index:1010;">
+  Play
+</button>
+<button id="skipIntro" style="position:absolute;top:2rem;right:2rem;padding:0.5em 1.5em;font-size:1.2em;background:#711FD2;color:#fff;border:none;border-radius:2em;cursor:pointer;opacity:0.75;">SKIP</button>
 </div>
 <script>
   const vid = document.getElementById('clandestinIntro');
   const intro = document.getElementById('video-intro');
   const skip = document.getElementById('skipIntro');
-  
-  // Asigură-te că video începe
-  vid.muted = true;
-  vid.play().catch(()=>{});
+  const play = document.getElementById('playIntro');
 
-  // Când video se termină, dispare overlayul
+  // Pe click pe PLAY: pornește video și sunet, ascunde butonul Play
+  play.onclick = () => {
+    vid.muted = false;
+    vid.volume = 1.0;
+    vid.play();
+    play.style.display = 'none';
+  };
+
+  // Pe END video sau SKIP: ascunde overlay
   vid.onended = () => { intro.style.display = 'none'; };
-
-  // Pe click pe SKIP, ascunde intro și oprește video
   skip.onclick = () => { vid.pause(); intro.style.display = 'none'; };
 
-  // Siguranță: ascunde overlay după 16s chiar dacă nu emite 'ended'
+  // Siguranță: auto-hide după 16s
   setTimeout(()=>{ intro.style.display = 'none'; }, 16000);
 </script>
   <!-- HERO -->
