@@ -23,20 +23,24 @@
   const skip = document.getElementById('skipIntro');
   const play = document.getElementById('playIntro');
 
-  // Pe click pe PLAY: pornește video și sunet, ascunde butonul Play
+  // Pe click pe PLAY: resetează video și pornește sincron, ascunde butonul Play
   play.onclick = () => {
+    vid.pause();
+    vid.currentTime = 0;
     vid.muted = false;
     vid.volume = 1.0;
     vid.play();
     play.style.display = 'none';
   };
 
-  // Pe END video sau SKIP: ascunde overlay
+  // La finalul video: ascunde overlay-ul
   vid.onended = () => { intro.style.display = 'none'; };
-  skip.onclick = () => { vid.pause(); intro.style.display = 'none'; };
 
-  // Siguranță: auto-hide după 16s
-  setTimeout(()=>{ intro.style.display = 'none'; }, 16000);
+  // La SKIP: oprește video și ascunde overlay-ul (resetează poziția)
+  skip.onclick = () => { vid.pause(); vid.currentTime = 0; intro.style.display = 'none'; };
+
+  // Siguranță: auto-hide overlay după 16s, oprește și resetează video
+  setTimeout(() => { intro.style.display = 'none'; vid.pause(); vid.currentTime = 0; }, 16000);
 </script>
   <!-- HERO -->
   <header class="relative overflow-hidden">
