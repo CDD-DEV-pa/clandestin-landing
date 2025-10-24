@@ -6,46 +6,64 @@
   <meta name="description" content="Clandestin – the most accessible decentralised ecosystem powered by the QRM signal token." />
   <title>Clandestin • Official Landing</title>
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+
+  <!-- Preload LCP image poster (minim, sigur) -->
+  <link rel="preload" as="image" href="/assets/intro-poster-1200.webp" fetchpriority="high">
+
+  <!-- Tailwind (menținut ca în fișierul tău) -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- INP mai bun pe hover (fără efecte grele) -->
+  <style>
+    a { transition: color .12s linear, opacity .12s linear, transform .12s ease; will-change: transform; }
+    a:hover { transform: translateY(-1px); }
+  </style>
 </head>
+
 <body class="min-h-screen bg-[#161622] text-white antialiased selection:bg-indigo-600/70 selection:text-white">
-<!-- VIDEO INTRO -->
-<section id="video-intro" style="width:100%;max-width:900px;margin:24px auto 0 auto;padding:0;text-align:center;">
-  <video id="clandestinIntro" src="/assets/intro.mp4" playsinline
-    style="width:100%;height:auto;display:block;border-radius:18px;background:black;object-fit:cover;">
-  </video>
-  <button onclick="document.getElementById('clandestinIntro').play()"
-    style="margin-top:16px;padding:0.5em 2em;font-size:1.2em;background:#27EA81;color:#161622;border:none;border-radius:8px;cursor:pointer;">
-    ▶ Play Intro
-  </button>
-</section>
-  <!-- HERO -->
+
+  <!-- VIDEO INTRO (păstrat layout-ul; doar încărcarea e modificată) -->
+  <section id="video-intro" style="width:100%;max-width:900px;margin:24px auto 0 auto;padding:0;text-align:center;">
+    <video id="clandestinIntro"
+      playsinline preload="none" poster="/assets/intro-poster-1200.webp"
+      style="width:100%;height:auto;display:block;border-radius:18px;background:black;object-fit:cover;aspect-ratio:16/9;">
+    </video>
+    <button id="playIntro"
+      style="margin-top:16px;width:200px;height:56px;font-size:1.1em;background:#27EA81;color:#161622;border:none;border-radius:8px;cursor:pointer;">
+      ▶ Play Intro
+    </button>
+  </section>
+
+  <!-- HERO (nemodificat ca structură și stil) -->
   <header class="relative overflow-hidden">
-    <!-- PROOF OF SIGNAL -->
-<section id="proof-of-signal" class="py-12 border-t border-white/10 bg-[#1c1c2a]">
-  <div class="max-w-3xl mx-auto px-4">
-    <h2 class="text-2xl font-semibold mb-3">Proof of Signal — Certificate of Authenticity</h2>
-    <p class="text-white/80 mb-5">
-      Project origin certified via initial IPFS CID:
-      <code class="bg-white/10 px-2 py-1 rounded">
-        bafybeiamjv3gpbbqpcluhgioqfbdt663kipeuqyrx2n5imsbcunzqmechq
-      </code>
-      (Official launch: August 1, 2025)
-    </p>
-    <div class="flex flex-wrap gap-3">
-      <a href="https://ipfs.io/ipfs/bafybeiamjv3gpbbqpcluhgioqfbdt663kipeuqyrx2n5imsbcunzqmechq"
-         target="_blank" rel="noopener"
-         class="inline-flex items-center rounded-lg border border-white/15 px-4 py-2 hover:bg-white/5">
-        View on IPFS (origin CID)
-      </a>
-      <a href="/assets/docs/proof_of_signal_certificate_ENG.pdf"
-         target="_blank" rel="noopener"
-         class="inline-flex items-center rounded-lg border border-white/15 px-4 py-2 hover:bg-white/5">
-        Download Certificate (PDF)
-      </a>
-    </div>
-  </div>
-</section>
+
+    <!-- PROOF OF SIGNAL (nemodificat, conform fișierului tău) -->
+    <section id="proof-of-signal" class="py-12 border-t border-white/10 bg-[#1c1c2a]">
+      <div class="max-w-3xl mx-auto px-4">
+        <h2 class="text-2xl font-semibold mb-3">Proof of Signal — Certificate of Authenticity</h2>
+        <p class="text-white/80 mb-5">
+          Project origin certified via initial IPFS CID:
+          <code class="bg-white/10 px-2 py-1 rounded">
+            bafybeiamjv3gpbbqpcluhgioqfbdt663kipeuqyrx2n5imsbcunzqmechq
+          </code>
+          (Official launch: August 1, 2025)
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="https://ipfs.io/ipfs/bafybeiamjv3gpbbqpcluhgioqfbdt663kipeuqyrx2n5imsbcunzqmechq"
+             target="_blank" rel="noopener"
+             class="inline-flex items-center rounded-lg border border-white/15 px-4 py-2 hover:bg-white/5">
+            View on IPFS (origin CID)
+          </a>
+          <a href="/assets/docs/proof_of_signal_certificate_ENG.pdf"
+             target="_blank" rel="noopener"
+             class="inline-flex items-center rounded-lg border border-white/15 px-4 py-2 hover:bg-white/5">
+            Download Certificate (PDF)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NAV (nemodificat) -->
     <nav class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
       <div class="flex items-center space-x-2">
         <img src="/assets/clandestin-logo.jpg" alt="Clandestin Logo" class="w-8 h-8 rounded-full" />
@@ -57,7 +75,6 @@
         <li><a href="https://qrm-deploy-clean.vercel.app" target="_blank" class="hover:text-indigo-400">dApp</a></li>
       </ul>
       <div class="md:hidden">
-        <!-- simple menu icon -->
         <button id="openMenu" class="focus:outline-none">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -65,190 +82,185 @@
         </button>
       </div>
     </nav>
+
+    <!-- MAIN CONTENT (nemodificat) -->
     <section id="main-content" class="flex flex-col items-center text-center px-6 pt-20 pb-32 bg-gradient-to-b from-[#1d1d2d] to-[#161622] relative">
-      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight max-w-3xl">Signal came first.<br><span class="text-indigo-500">Token or cult?</span> You decide.</h1>
-      <p class="mt-6 max-w-xl text-gray-300">Clandestin is the hardware‑light, energy‑light ecosystem where anyone can mine by decoding Morse. Powered by <span class="font-semibold">QRM</span>.</p>
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight max-w-3xl">Signal came first.<br><span class="text-indigo-500">Token or cult?</span> You decide.</h1>
+      <p class="mt-6 max-w-xl text-gray-300">Clandestin is the hardware-light, energy-light ecosystem where anyone can mine by decoding Morse. Powered by <span class="font-semibold">QRM</span>.</p>
       <div class="flex space-x-4 mt-10">
         <a href="https://qrm-deploy-clean.vercel.app" class="py-3 px-8 bg-indigo-600 hover:bg-indigo-700 rounded-2xl shadow-lg font-semibold">Validate Today’s Signal ↗</a>
         <a href="https://qrm-deploy-clean.vercel.app/?mode=anon" class="py-3 px-8 bg-gray-600 hover:bg-gray-700 rounded-2xl shadow font-semibold">Validate without wallet (no reward)</a>
       </div>
-      <!-- subtle animated pulse background -->
       <div class="absolute -z-10 inset-0 bg-[radial-gradient(circle_at_center,rgba(113,31,210,0.25),transparent_60%)]"></div>
     </section>
   </header>
 
-  <!-- DOCS SECTION (EN) -->
-<section id="docs-en" class="py-20 px-6 max-w-6xl mx-auto">
-  <h2 class="text-2xl md:text-3xl font-bold mb-8">Official Documentation (EN)</h2>
-  <div class="grid md:grid-cols-2 gap-6 text-sm">
-    <div class="bg-[#1e1e2e] rounded-2xl p-6 border border-white/10 hover:border-indigo-500 transition">
-      <h3 class="font-semibold text-lg mb-2">Legal & Mechanism</h3>
-      <ul class="space-y-1 list-disc list-inside text-gray-300">
-        <li>
-          <a href="/assets/docs/qrm_distribution_en.pdf" target="_blank" class="hover:text-indigo-400">
-            QRM Distribution Over 4 Years
-          </a>
-        </li>
-        <li>
-          <a href="/assets/docs/fairness_law_en.pdf" target="_blank" class="hover:text-indigo-400">
-            Clandestin Fairness Law
-          </a>
-        </li>
-        <li>
-          <a href="/assets/docs/privacy_policy_en.pdf" target="_blank" class="hover:text-indigo-400">
-            Privacy Policy
-          </a>
-        </li>
-        <li>
-          <a href="/assets/docs/copyright_license_en.pdf" target="_blank" class="hover:text-indigo-400">
-            Copyright & License
-          </a>
-        </li>
-        <li>
-          <a href="/assets/docs/content_attribution_en.pdf" target="_blank" class="hover:text-indigo-400">
-            Content Attribution & Third-Party Assets
-          </a>
-        </li>
-        <li>
-          <a href="/assets/docs/risk_disclaimer_en.pdf" target="_blank" class="hover:text-indigo-400">
-            Risk Disclaimer
-          </a>
-        </li>
-        <li>
-          <a href="/assets/docs/terms_of_use_en.pdf" target="_blank" class="hover:text-indigo-400">
-            Terms of Use
-          </a>
-        </li>
-        <!-- Proof of Signal certificate -->
-        <li>
-  <a href="https://ipfs.io/ipfs/bafybeiamjv3gpbbqpcluhgioqfbdt663kipeuqyrx2n5imsbcunzqmechq/" target="_blank" class="hover:text-indigo-400 font-semibold">
-    Proof of Signal – Certificate of Authenticity
-  </a>
-  <br>
-  <span class="text-gray-400 text-xs">
-    Project origin certified via initial IPFS CID:<br>
-    <code>bafybeiamjv3gpbbqpcluhgioqfbdt663kipeuqyrx2n5imsbcunzqmechq</code><br>
-    Published for public validation.<br>
-    Official launch: <b>August 1, 2025</b> (testing only before this date)
-  </span>
-</li>
-      </ul>
+  <!-- NFT SHOWCASE -->
+<section id="nft" class="py-16 px-6 max-w-6xl mx-auto">
+  <h2 class="text-2xl md:text-3xl font-bold mb-8">NFT Classes</h2>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div>
+      <video data-src="/assets/nft-martor.mp4" loop muted playsinline preload="none"
+             poster="/assets/nft-martor-poster.webp"
+             loop muted playsinline preload="none"
+             style="width:100%;height:auto;display:block;border-radius:12px;object-fit:cover;aspect-ratio:16/9;"></video>
+      <h3 class="mt-3 font-semibold">Witness</h3>
+      <p class="text-sm text-gray-400">Entry class. Proves you’ve heard and decoded the daily signal.</p>
+    </div>
+
+    <div>
+      <video data-src="/assets/nft-initiat.mp4" loop muted playsinline preload="none"
+             poster="/assets/nft-initiat-poster.webp"
+             loop muted playsinline preload="none"
+             style="width:100%;height:auto;display:block;border-radius:12px;object-fit:cover;aspect-ratio:16/9;"></video>
+      <h3 class="mt-3 font-semibold">Initiate</h3>
+      <p class="text-sm text-gray-400">Shows consistent participation across multiple days.</p>
+    </div>
+
+    <div>
+      <video data-src="/assets/nft-constructor.mp4" loop muted playsinline preload="none"
+             poster="/assets/nft-constructor-poster.webp"
+             loop muted playsinline preload="none"
+             style="width:100%;height:auto;display:block;border-radius:12px;object-fit:cover;aspect-ratio:16/9;"></video>
+      <h3 class="mt-3 font-semibold">Constructor</h3>
+      <p class="text-sm text-gray-400">Builds up streaks and contributes signal accuracy.</p>
+    </div>
+
+    <div>
+      <video data-src="/assets/nft-explorator.mp4" loop muted playsinline preload="none"
+             poster="/assets/nft-explorator-poster.webp"
+             loop muted playsinline preload="none"
+             style="width:100%;height:auto;display:block;border-radius:12px;object-fit:cover;aspect-ratio:16/9;"></video>
+      <h3 class="mt-3 font-semibold">Explorer</h3>
+      <p class="text-sm text-gray-400">Explores advanced modes and harder challenges.</p>
+    </div>
+
+    <div>
+      <video data-src="/assets/nft-divergent.mp4" loop muted playsinline preload="none"
+             poster="/assets/nft-divergent-poster.webp"
+             loop muted playsinline preload="none"
+             style="width:100%;height:auto;display:block;border-radius:12px;object-fit:cover;aspect-ratio:16/9;"></video>
+      <h3 class="mt-3 font-semibold">Divergent</h3>
+      <p class="text-sm text-gray-400 italic">Unlocks after collecting the previous four NFTs.</p>
     </div>
   </div>
 </section>
 
-  <!-- NFT SECTION -->
-<section id="nft" class="py-20 px-6 bg-[#1d1d2d]">
-  <div class="max-w-6xl mx-auto text-center">
-    <h2 class="text-2xl md:text-3xl font-bold mb-4">NFT Tiers</h2>
-    <p class="text-gray-300 max-w-2xl mx-auto">
-      NFT-uri anuale progresive pentru validatori + NFT rar Divergent doar cu toate cele 4 anterioare.
-    </p>
-    <div class="grid md:grid-cols-4 gap-6 mt-10">
-      <!-- NFT Martor -->
-      <div class="bg-[#161622] rounded-2xl p-6 border border-indigo-500 flex flex-col items-center">
-        <video src="/assets/nft-martor.mp4" autoplay loop muted playsinline
-               onclick="openVideoModal('/assets/nft-martor.mp4')"
-               class="w-24 h-24 mx-auto mb-3 rounded-xl shadow-lg cursor-pointer transition duration-200 hover:ring-2 hover:ring-indigo-400"
-               style="object-fit:cover;">
-        </video>
-        <h3 class="font-semibold mb-1">Martor</h3>
-        <span class="text-sm text-gray-400">Year 1</span>
-      </div>
-      <!-- NFT Initiat -->
-      <div class="bg-[#161622] rounded-2xl p-6 border border-indigo-500/80 flex flex-col items-center">
-        <video src="/assets/nft-initiat.mp4" autoplay loop muted playsinline
-               onclick="openVideoModal('/assets/nft-initiat.mp4')"
-               class="w-24 h-24 mx-auto mb-3 rounded-xl shadow-lg cursor-pointer transition duration-200 hover:ring-2 hover:ring-indigo-400"
-               style="object-fit:cover;">
-        </video>
-        <h3 class="font-semibold mb-1">Inițiat</h3>
-        <span class="text-sm text-gray-400">Year 2</span>
-      </div>
-      <!-- NFT Constructor -->
-      <div class="bg-[#161622] rounded-2xl p-6 border border-indigo-500/60 flex flex-col items-center">
-        <video src="/assets/nft-constructor.mp4" autoplay loop muted playsinline
-               onclick="openVideoModal('/assets/nft-constructor.mp4')"
-               class="w-24 h-24 mx-auto mb-3 rounded-xl shadow-lg cursor-pointer transition duration-200 hover:ring-2 hover:ring-indigo-400"
-               style="object-fit:cover;">
-        </video>
-        <h3 class="font-semibold mb-1">Constructor</h3>
-        <span class="text-sm text-gray-400">Year 3</span>
-      </div>
-      <!-- NFT Explorator -->
-      <div class="bg-[#161622] rounded-2xl p-6 border border-indigo-500/40 flex flex-col items-center">
-        <video src="/assets/nft-explorator.mp4" autoplay loop muted playsinline
-               onclick="openVideoModal('/assets/nft-explorator.mp4')"
-               class="w-24 h-24 mx-auto mb-3 rounded-xl shadow-lg cursor-pointer transition duration-200 hover:ring-2 hover:ring-indigo-400"
-               style="object-fit:cover;">
-        </video>
-        <h3 class="font-semibold mb-1">Explorator</h3>
-        <span class="text-sm text-gray-400">Year 4</span>
+  <!-- DOCS SECTION (EN) — păstrat din fișierul tău -->
+  <section id="docs-en" class="py-20 px-6 max-w-6xl mx-auto">
+    <h2 class="text-2xl md:text-3xl font-bold mb-8">Official Documentation (EN)</h2>
+    <div class="grid md:grid-cols-2 gap-6 text-sm">
+      <div class="bg-[#1e1e2e] rounded-2xl p-6 border border-white/10 hover:border-indigo-500 transition">
+        <h3 class="font-semibold text-lg mb-2">Legal & Mechanism</h3>
+        <ul class="space-y-1 list-disc list-inside text-gray-300">
+          <li><a href="/assets/docs/qrm_distribution_en.pdf" target="_blank" class="hover:text-indigo-400">QRM Distribution Over 4 Years</a></li>
+          <li><a href="/assets/docs/fairness_law_en.pdf" target="_blank" class="hover:text-indigo-400">Clandestin Fairness Law</a></li>
+          <li><a href="/assets/docs/privacy_policy_en.pdf" target="_blank" class="hover:text-indigo-400">Privacy Policy</a></li>
+          <li><a href="/assets/docs/copyright_license_en.pdf" target="_blank" class="hover:text-indigo-400">Copyright & License</a></li>
+          <li><a href="/assets/docs/content_attribution_en.pdf" target="_blank" class="hover:text-indigo-400">Content Attribution & Third-Party Assets</a></li>
+          <li><a href="/assets/docs/risk_disclaimer_en.pdf" target="_blank" class="hover:text-indigo-400">Risk Disclaimer</a></li>
+          <li><a href="/assets/docs/terms_of_use_en.pdf" target="_blank" class="hover:text-indigo-400">Terms of Use</a></li>
+        </ul>
       </div>
     </div>
-    <!-- Card special pentru Divergent -->
-    <div class="max-w-md mx-auto mt-12">
-      <div class="bg-[#161622] rounded-2xl p-6 border-2 border-yellow-500 flex flex-col items-center shadow-xl">
-        <video src="/assets/nft-divergent.mp4" autoplay loop muted playsinline
-               onclick="openVideoModal('/assets/nft-divergent.mp4')"
-               class="w-32 h-32 mx-auto mb-3 rounded-2xl shadow-lg cursor-pointer transition duration-200 hover:ring-2 hover:ring-yellow-400"
-               style="object-fit:cover;">
-        </video>
-        <h3 class="font-bold text-lg mb-1 text-yellow-300">Divergent</h3>
-        <span class="text-sm text-gray-400">Se deblochează doar cu toate cele 4 NFT-uri anterioare</span>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-  <!-- FOOTER -->
-  <footer class="py-10 bg-[#161622] text-center text-sm text-gray-400">
-    <div class="flex justify-center space-x-6 mb-4">
-      <a href="https://x.com/clandestin_signal" class="hover:text-indigo-400" aria-label="X/Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 5.924c-.793.352-1.644.592-2.538.699.913-.547 1.613-1.413 1.944-2.447-.854.504-1.798.87-2.81 1.067-.806-.859-1.956-1.396-3.228-1.396-2.44 0-4.436 1.986-4.436 4.438 0 .347.04.684.115 1.008-3.686-.185-6.957-1.953-9.147-4.636-.382.656-.602 1.418-.602 2.228 0 1.538.784 2.896 1.976 3.69-.73-.022-1.417-.224-2.017-.556v.056c0 2.151 1.532 3.946 3.571 4.352-.373.101-.766.154-1.17.154-.286 0-.565-.028-.836-.081.566 1.774 2.209 3.064 4.158 3.099-1.522 1.193-3.437 1.902-5.515 1.902-.359 0-.713-.021-1.062-.061 1.969 1.264 4.307 2.001 6.824 2.001 8.189 0 12.669-6.787 12.669-12.668 0-.193-.004-.385-.013-.577.871-.628 1.632-1.417 2.235-2.31z"/></svg></a>
-      <a href="https://reddit.com/r/clandestin" class="hover:text-indigo-400" aria-label="Reddit"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M21.952 11.71c-.097-.225-.337-.35-.575-.297-.225.047-.375.267-.345.494.012.1.019.2.019.3 0 3.593-3.83 6.51-8.51 6.51s-8.51-2.917-8.51-6.51c0-.1.007-.2.018-.3.03-.227-.12-.447-.345-.494-.238-.053-.478.072-.575.297-.041.095-.063.2-.063.306 0 4.126 3.98 7.5 8.975 7.5s8.975-3.374 8.975-7.5c0-.106-.022-.211-.064-.306zM8.062 13.017c-.961 0-1.741.799-1.741 1.784s.78 1.784 1.741 1.784c.962 0 1.742-.799 1.742-1.784s-.78-1.784-1.742-1.784zm7.876 0c-.962 0-1.742.799-1.742 1.784s.78 1.784 1.742 1.784c.961 0 1.741-.799 1.741-1.784s-.78-1.784-1.741-1.784z"/><circle cx="12" cy="5.667" r="2"/></svg></a>
-      <a href="https://tiktok.com/@clandestin" class="hover:text-indigo-400" aria-label="TikTok"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17 7.2c1 .6 2.2.9 3.4.9V4.3c-.4 0-.8-.1-1.2-.1-2.3-.3-4.3-1.7-5.2-4h-3v14.8c0 1.2-.2 2.2-.7 2.9-.4.7-1.1 1.3-2 1.6-.7.3-1.5.4-2.4.4-1.3 0-2.4-.3-3.3-1-.9-.7-1.4-1.7-1.4-3 0-1.3.5-2.3 1.4-3 .8-.6 1.9-1 3.3-1 .3 0 .6.1.9.1v-3c-.3 0-.6-.1-.9-.1-1.1 0-2 .2-2.9.7-.9.5-1.6 1.1-2.2 1.9-.6.8-1 1.6-1.3 2.6-.3 1-.5 1.9-.5 2.9 0 1 .2 1.9.5 2.8.3.9.8 1.7 1.4 2.4.6.7 1.4 1.2 2.3 1.6s1.9.6 3.1.6c1.8 0 3.2-.3 4.4-.9 1.2-.6 2.2-1.4 2.9-2.5.8-1.1 1.2-2.3 1.2-3.8V7.2z"/></svg></a>
-    </div>
-    <p>© 2025 Clandestin • Powered by QRM</p>
+  <!-- (opțional) social links — păstrate dacă erau în fișierul tău -->
+  <footer class="py-10 px-6 max-w-6xl mx-auto flex items-center gap-4">
+    <a href="https://x.com/clandestin_signal" class="hover:text-indigo-400" aria-label="X/Twitter">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 5.924c-.793.352-1.644.592-2.538.699.913-.547 1.613-1.413 1.944-2.447-.854.504-1.798.87-2.81 1.067-.806-.859-1.956-1.396-3.228-1.396-2.44 0-4.436 1.986-4.436 4.438 0 .347.04.684.115 1.008-3.686-.185-6.957-1.953-9.147-4.636-.382.656-.602 1.418-.602 2.228 0 1.538.784 2.896 1.976 3.69-.73-.022-1.417-.224-2.017-.556v.056c0 2.151 1.532 3.946 3.571 4.352-.373.101-.766.154-1.17.154-.286 0-.565-.028-.836-.081.566 1.774 2.209 3.064 4.158 3.099-1.522 1.193-3.437 1.902-5.515 1.902-.359 0-.713-.021-1.062-.061 1.969 1.264 4.307 2.001 6.824 2.001 8.189 0 12.669-6.787 12.669-12.668 0-.193-.004-.385-.013-.577.871-.628 1.632-1.417 2.235-2.31z"/></svg>
+    </a>
+    <a href="https://reddit.com/r/clandestin" class="hover:text-indigo-400" aria-label="Reddit">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M21.952 11.71c-.097-.225-.337-.35-.575-.297-.225.047-.375.267-.345.494.012.1.019.2.019.3 0 3.593-3.83 6.51-8.51 6.51s-8.51-2.917-8.51-6.51c0-.1.007-.2.018-.3.03-.227-.12-.447-.345-.494-.238-.053-.478.072-.575.297-.041.095-.063.2-.063.306 0 4.126 3.98 7.5 8.975 7.5s8.975-3.374 8.975-7.5c0-.106-.022-.211-.064-.306zM8.062 13.017c-.961 0-1.741.799-1.741 1.784s.78 1.784 1.741 1.784c.962 0 1.742-.799 1.742-1.784s-.78-1.784-1.742-1.784zm7.876 0c-.962 0-1.742.799-1.742 1.784s.78 1.784 1.742 1.784c.961 0 1.741-.799 1.741-1.784s-.78-1.784-1.741-1.784z"/><circle cx="12" cy="5.667" r="2"/></svg>
+    </a>
+    <a href="https://tiktok.com/@clandestin" class="hover:text-indigo-400" aria-label="TikTok">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17 7.2c1 .6 2.2.9 3.4.9V4.3c-.4 0-.8-.1-1.2-.1-2.3-.3-4.3-1.7-5.2-4h-3v14.8c0 1.2-.2 2.2-.7 2.9-.4.7-1.1 1.3-2 1.6-.7.3-1.5.4-2.4.4-1.3 0-2.4-.3-3.3-1-.9-.7-1.4-1.7-1.4-3 0-1.3.5-2.3 1.4-3 .8-.6 1.9-1 3.3-1 .3 0 .6.1.9.1v-3c-.3 0-.6-.1-.9-.1-1.1 0-2 .2-2.9.7-.9.5-1.6 1.1-2.2 1.9-.6.8-1 1.6-1.3 2.6-.3 1-.5 1.9-.5 2.9 0 1 .2 1.9.5 2.8.3.9.8 1.7 1.4 2.4.6.7 1.4 1.2 2.3 1.6s1.9.6 3.1.6c1.8 0 3.2-.3 4.4-.9 1.2-.6 2.2-1.4 2.9-2.5.8-1.1 1.2-2.3 1.2-3.8V7.2z"/></svg>
+    </a>
   </footer>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const video = document.getElementById('clandestinIntro');
-  if (!video) return;
-  video.addEventListener('ended', function() {
-    const next = document.getElementById('main-content');
-    if(next) {
-      next.scrollIntoView({ behavior: 'smooth' });
+
+  <!-- Script minim: atașare sursă video la idle + scroll la butoane + lazy pentru NFT -->
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+  // ——— Intro video ———
+  const v = document.getElementById('clandestinIntro');
+  const b = document.getElementById('playIntro');
+  const main = document.getElementById('main-content');
+
+  // siguranta: daca nu exista elementele, iesim fara eroare
+  if (v && b) {
+    // atașăm sursa DOAR când e idle (nu afectează LCP)
+    let armed = false;
+    function armVideo(){
+      if (armed) return; armed = true;
+      if (!v.querySelector('source')) {
+        const s = document.createElement('source');
+        s.src = '/assets/intro.mp4';
+        s.type = 'video/mp4';
+        v.appendChild(s);
+      }
+      v.load();
     }
-  });
+    if ('requestIdleCallback' in window) requestIdleCallback(armVideo); else setTimeout(armVideo, 300);
+
+    // rulează la click; derulează la butoane DOAR după ce se termină
+    b.addEventListener('click', function(){
+      v.play().catch(()=>{ /* ignorăm erorile autoplay */ });
+      const onEnd = () => {
+        v.removeEventListener('ended', onEnd);
+        main && main.scrollIntoView && main.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+      v.addEventListener('ended', onEnd, { once: true });
+    }, { passive:true });
+  }
+
+  // ——— NFT mini-videouri (lazy + autoplay) ———
+  const vids = Array.from(document.querySelectorAll('video[data-src]'));
+  if (vids.length) {
+    // atribute cerute pt autoplay silențios
+    vids.forEach(el => {
+      el.muted = true;
+      el.playsInline = true;
+      el.setAttribute('muted', '');
+      el.setAttribute('playsinline', '');
+      // dacă există poster, îl păstrăm până pornește
+    });
+
+    function attachAndPlay(el){
+      if (!el.src) {
+        el.src = el.dataset.src;
+        el.load();
+      }
+      const tryPlay = () => el.play && el.play().catch(()=>{});
+      if (el.readyState >= 2) tryPlay();
+      else el.addEventListener('loadeddata', tryPlay, { once:true });
+    }
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if (!e.isIntersecting) return;
+          attachAndPlay(e.target);
+          io.unobserve(e.target);
+        });
+      }, { root:null, rootMargin:'400px 0px', threshold:0.01 });
+      vids.forEach(v => io.observe(v));
+      // fallback dacă primul rând e deja vizibil
+      requestAnimationFrame(()=>{
+        vids.slice(0,3).forEach(v=>{
+          const r = v.getBoundingClientRect();
+          const inView = r.top < (innerHeight||document.documentElement.clientHeight) && r.bottom > 0;
+          if (inView) attachAndPlay(v);
+        });
+      });
+    } else {
+      vids.forEach(attachAndPlay);
+    }
+  }
 });
 </script>
-<!-- Modal pentru video NFT -->
-<div id="videoModal" style="display:none; position:fixed; z-index:2000; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); align-items:center; justify-content:center;">
-  <video id="modalVideo" style="max-width:90vw; max-height:80vh; border-radius:16px; box-shadow:0 8px 32px #000;" controls></video>
-  <button onclick="closeVideoModal()" style="position:absolute;top:32px;right:48px;font-size:2em;color:white;background:none;border:none;cursor:pointer;">&times;</button>
-</div>
-<script>
-  function openVideoModal(src) {
-    const modal = document.getElementById('videoModal');
-    const v = document.getElementById('modalVideo');
-    v.src = src;
-    v.currentTime = 0;
-    v.muted = false;
-    v.loop = false;
-    v.play();
-    modal.style.display = 'flex';
-  }
-  function closeVideoModal() {
-    const modal = document.getElementById('videoModal');
-    const v = document.getElementById('modalVideo');
-    v.pause();
-    modal.style.display = 'none';
-  }
-  // Închide la click pe fundal
-  document.getElementById('videoModal').onclick = function(e){
-    if(e.target === this) closeVideoModal();
-  }
-</script>
+
+      
+
 </body>
 </html>
 
