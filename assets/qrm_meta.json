@@ -1,0 +1,32 @@
+{
+  "name": "Clandestin",
+  "symbol": "QRM",
+  "description": "Clandestin (QRM) is the Proof-of-Signal mining and reward token of the Clandestin ecosystem on Solana. QRM rewards participants who validate encrypted signals, supports liquidity provisioning, and funds ecosystem security and development. 8 decimals.",
+  "image": "https://clandestinlanding.com/assets/qrm_logo.png",
+  "external_url": "https://clandestinlanding.com",
+  "properties": {
+    "category": "image",
+    "files": [
+      {
+        "uri": "https://clandestinlanding.com/assets/qrm_logo.png",
+        "type": "image/png"
+      },
+      {
+        "uri": "https://ipfs.io/ipfs/bafkreialty3xz2mvhdb6mmo6bs7njutfwnkk2j5xxzguzpowyu74gmdcgy",
+        "type": "image/png"
+      },
+      {
+        "uri": "https://clandestinlanding.com/assets/qrm_meta.json",
+        "type": "application/json"
+      }
+    ]
+  },
+  "extensions": {
+    "website": "https://clandestinlanding.com",
+    "telegram": "https://t.me/clandestinlanding_oficial",
+    "twitter": "https://x.com/divergentul",
+    "email": "contact@clandestinlanding.com",
+    "pool_orca": "https://www.orca.so/pools/9Z8S96qxNkkoKrDppX7i7KshRoMedtvfBsvSHuCaEGYa",
+    "geckoterminal": "https://www.geckoterminal.com/solana/pools/9Z8S96qxNkkoKrDppX7i7KshRoMedtvfBsvSHuCaEGYa"
+  }
+}
